@@ -65,4 +65,4 @@ smartgauge/
 - Certifique-se de que o sensor digital esteja funcionando corretamente e ligado ao pino GPIO 17 (BCM).
 
 ---
-Desenvolvido como parte do projeto de sistemas embarcados.
+Desenvolvido como parte do projeto integrador 2025 1º Semestre
