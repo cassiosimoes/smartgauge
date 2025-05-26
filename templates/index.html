@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartGauge</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .header img {
+      width: 60px;
+      height: 60px;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin: 0;
+    }
+    .form {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    input[type="text"] {
+      padding: 12px;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .buttons button {
+      flex: 1;
+      padding: 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="/static/medidor.png" alt="Logo do Medidor">
+    <h1>SmartGauge</h1>
+  </div>
+  <div class="form">
+    <div class="input-group">
+      <label for="velocidade">Velocidade</label>
+      <input type="text" id="velocidade" placeholder="Digite a velocidade">
+    </div>
+    <div class="input-group">
+      <label for="distancia">Distância</label>
+      <input type="text" id="distancia" placeholder="Digite a distância">
+    </div>
+    <div class="input-group">
+      <label for="valor">Valor Cobrado</label>
+      <input type="text" id="valor" placeholder="Digite o valor cobrado">
+    </div>
+    <div class="buttons">
+      <button>Calibrar</button>
+      <button>Zerar Sistema</button>
+    </div>
+  </div>
+  <script>
+    document.querySelector('button:nth-child(1)').addEventListener('click', () => {
+      fetch('/calibrar', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('velocidade').value = data.velocidade;
+          document.getElementById('distancia').value = data.distancia;
+          document.getElementById('valor').value = data.valor;
+        });
+    });
+
+    document.querySelector('button:nth-child(2)').addEventListener('click', () => {
+      fetch('/zerar', { method: 'POST' });
+      document.getElementById('velocidade').value = '';
+      document.getElementById('distancia').value = '';
+      document.getElementById('valor').value = '';
+    });
+  </script>
+</body>
+</html>

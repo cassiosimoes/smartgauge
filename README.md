@@ -1,14 +1,13 @@
 # SmartGauge
 
 **Integrantes do Grupo:**
-- Celso Endrigo Miyashiro, 1823174  
-- Cássio Simões de Oliveira, 2005277   
-- Diorgines Alves Pontes, 1826709  
-- Lucas Takeo, 2105780 
-- Yuri Sidney Forjaz, 23213733
+- Ana Silva
+- Bruno Oliveira
+- Carla Mendes
+- Diego Souza
 
 **Instituição:**
-Univesp - Universidade Virtual do Estado de São Paulo
+Universidade Federal de Tecnologia Aplicada
 
 ## Descrição
 O projeto **SmartGauge** é um sistema embarcado utilizando Raspberry Pi para medir a velocidade, distância percorrida e calcular um valor com base em pulsos digitais recebidos. A cada pulso lido de um sensor digital, considera-se 30 cm percorridos. A medição é realizada durante 1 minuto ao pressionar o botão "Calibrar" na interface web.
@@ -65,4 +64,4 @@ smartgauge/
 - Certifique-se de que o sensor digital esteja funcionando corretamente e ligado ao pino GPIO 17 (BCM).
 
 ---
-Desenvolvido como parte do projeto integrado 2025 da univesp.
+Desenvolvido como parte do projeto de sistemas embarcados.
